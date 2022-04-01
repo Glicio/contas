@@ -1,0 +1,55 @@
+:root{
+    --spacing: 2rem;
+}
+
+
+table{
+    border-collapse: collapse;
+    max-width: 35vw;
+}
+tr{
+    width: 20vh;
+}
+.table-header{
+    background-color: black;
+    color: white;
+    border: 1px grey solid;
+}
+.info{
+    background-color: black;
+    color: white;
+    border: 1px grey solid; 
+}
+.value{
+    text-align: justify;
+    overflow: hidden;
+    border: 1px grey solid; 
+}
+.desc-div{
+    font-size: small;
+    height: 10vh;
+    overflow: scroll;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 3px;
+    height: 1px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    height: 1px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    height: 1px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
