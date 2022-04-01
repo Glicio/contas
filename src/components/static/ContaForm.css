@@ -1,0 +1,33 @@
+.contas-form{
+    border: 1px black solid;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: black;
+    width: 35vw;
+}
+.contas-form  label{
+
+    border-block: 1px grey solid;
+    color: white;
+    width: 100%;
+
+}
+.contas-form input{
+    min-width: 1px;
+}
+.form-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.form-btn{
+    background-color: grey;
+    color: white;
+}
+.form-btn:hover{
+    cursor: pointer;
+    background-color: rgb(70, 70, 70);
+    color: white;
+}

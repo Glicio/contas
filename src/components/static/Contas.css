@@ -2,9 +2,13 @@
     --spacing: 2rem;
 }
 
-
+.conta{
+    margin: 0.5rem;
+}
 table{
     border-collapse: collapse;
+    width: 35vw;
+    min-width: 35vw;
     max-width: 35vw;
 }
 tr{
@@ -16,6 +20,7 @@ tr{
     border: 1px grey solid;
 }
 .info{
+    width: fit-content;
     background-color: black;
     color: white;
     border: 1px grey solid; 
