@@ -1,53 +1,84 @@
-import React from "react";
+import React, { useState } from "react";
 import "./static/Contas.css"
 
-const Pagamento = ({data, valor}) => {
-    return(
+
+const Pagamentos = ({pagamentos}) => {
+
+    const [pagamentosArr] = useState(pagamentos);
+    return (
         <>
-        <div className="item-div">
-            <div className="value-div">{data}</div>
-            <div className="value-div">{valor}</div>
-        </div>
+        {pagamentos.map(pagamento => {
+            return (
+                <>
+                <tr>
+                    <td className="value">
+                        {pagamento.data}
+                    </td>
+                    <td className="value">{"R$ "+pagamento.valor}</td>
+                </tr>
+                </>
+            )
+        })}
         </>
     )
 }
 
-export default ({credor, valor, descricao}) => {
+const Pagamento = ({pagamentos}) => {
     return(
         <>
-        {/*<div className="conta-container">
-            <div className="info-div header">Conta</div>
-            <div className="item-div"> 
-                <div className="info-div">Credor:</div>
-                <div className="value-div">{credor}</div>
-            </div>
-            <div className="item-div"> 
-                <div className="info-div">Valor:</div>
-                <div className="value-div">{valor}</div>
-            </div>
-            <div className="item-div"> 
-                <div className="info-div">Descrição:</div>
-                <div className="value-div" id="desc">{descricao}</div>
-            </div>
-            <div className="info-div header">Pagamentos</div>
-            <div className="item-div">
-                <div className="info-div header">Data</div>
-                <div className="info-div header">Valor</div>
-            </div>
-            <Pagamento data={"25/03/2022"} valor={"RS 25,00"}/>
-    </div>*/
-    }
+        <table>
+            <thead>
+                <tr>
+                    <th className="table-header" style={{borderTop: "none"}}>
+                        Data
+                    </th>
+                    <th className="table-header" style={{borderTop: "none"}}>
+                        Valor
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            <Pagamentos pagamentos={pagamentos}></Pagamentos>
+            </tbody>
+        </table>
+
+        </>
+    )
+}
+
+
+
+export default ({credor, valor, descricao}) => {
+    const pagamentos = [
+        {
+            data: "15/01/2022",
+            valor: 25.00,
+        },
+        {
+            data: "16/02/2022",
+            valor: 25.00,
+        },
+    ]
+    return(
+        <>
+    
 
     <table>
+        <thead>
             <tr>
                 <th className="table-header" colSpan={"2"}>
                     Conta
                 </th>
             </tr>
+        </thead>
         <tbody>
             <tr>
                 <td className="info">Credor:</td>
                 <td className="value">{credor}</td>
+            </tr>
+            <tr>
+            <td className="info">Valor:</td>
+                <td className="value">{valor}</td>
             </tr>
             <tr>
                 <td className="info">Descrição:</td>
@@ -55,6 +86,7 @@ export default ({credor, valor, descricao}) => {
             </tr>
         </tbody>
     </table>
+    <Pagamento pagamentos={pagamentos}></Pagamento>
         </>
     )
 }
