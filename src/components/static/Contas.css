@@ -4,12 +4,14 @@
 
 .conta{
     margin: 0.5rem;
+    justify-self: center;
+    grid-area: "conta";
 }
 table{
     border-collapse: collapse;
     width: 35vw;
-    min-width: 35vw;
-    max-width: 35vw;
+    min-width: 30vw;
+    max-width: 30vw;
 }
 tr{
     width: 20vh;
@@ -34,6 +36,14 @@ tr{
     font-size: small;
     height: 10vh;
     overflow: scroll;
+}
+
+.delete-btn{
+    cursor: pointer;
+    margin-left: auto;
+    color: white;
+    background-color: black;
+    border: none;
 }
 
 /* width */

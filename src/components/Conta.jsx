@@ -6,18 +6,16 @@ const Pagamentos = ({pagamentos}) => {
 
     return (
         <>
-        {pagamentos.map(pagamento => {
+        {pagamentos ? pagamentos.map(pagamento => {
             return (
-                <>
-                <tr>
-                    <td className="value">
+                <tr key={pagamento.id}>
+                    <td key={"dt"+pagamento.id} className="value">
                         {pagamento.data}
                     </td>
-                    <td className="value">{"R$ "+pagamento.valor}</td>
+                    <td key={"v"+pagamento.id} className="value">{"R$ "+pagamento.valor}</td>
                 </tr>
-                </>
             )
-        })}
+        } ): ""}
         </>
     )
 }
@@ -53,19 +51,24 @@ const Pagamento = ({pagamentos}) => {
 
 
 
-export default function Conta({credor, valor, descricao, pagamentos}) {
+export default function Conta({id,credor, valor, descricao, pagamentos, deleteConta, atualizar}) {
 
 
 
-    const valorPago = pagamentos.reduce((acc, curr) => {
-       return acc+=curr.valor; 
-    },0)
+    const valorPago = () =>{ 
+        const total = pagamentos.reduce((acc, curr) => {
+            return acc+=curr.valor; 
+        },0)
+        return total;
+    }
 
 
     return(
     <div className="conta">
     
-
+        <div className="table-header" style={{display: "flex", alignItems: "flex-end"}}>
+            <button className="delete-btn" onClick={(e) => {deleteConta(id); atualizar()}}>ⓧ</button>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -85,11 +88,11 @@ export default function Conta({credor, valor, descricao, pagamentos}) {
                 </tr>
                 <tr>
                     <td className="info" style={{width: "15vw"}}>Valor Pago:</td>
-                    <td className="value">{"R$ "+valorPago.toFixed(2)}</td>
+                    <td className="value">{pagamentos ? "R$ "+valorPago().toFixed(2) : "R$ 0,00"}</td>
                 </tr>
                 <tr>
                     <td className="info" style={{width: "15vw"}}>Resta pagar:</td>
-                    <td className="value">{"R$ "+(valor-valorPago).toFixed(2)}</td>
+                    <td className="value">{pagamentos ? "R$ "+(valor-valorPago()).toFixed(2) : "R$: "+valor.toFixed(2)}</td>
                 </tr>
                 <tr>
                     <td className="info">Descrição:</td>
