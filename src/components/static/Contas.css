@@ -6,6 +6,7 @@
     margin: 0.5rem;
     justify-self: center;
     grid-area: "conta";
+    box-shadow: 0 0 1em .25em black;
 }
 table{
     border-collapse: collapse;
@@ -38,11 +39,12 @@ tr{
     overflow: scroll;
 }
 
+
 .delete-btn{
     cursor: pointer;
     margin-left: auto;
     color: white;
-    background-color: black;
+    background-color: transparent;
     border: none;
 }
 

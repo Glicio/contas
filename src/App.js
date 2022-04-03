@@ -40,7 +40,7 @@ const deleteConta = (id) => {
     body: JSON.stringify(conta),
   }
 
-  return fetch("http://localhost:3030/delete/conta",info)
+  return fetch("http://localhost:3030/delete/conta",info).then(refresh())
 }
 
 const toggleShowCreateContaForm = () =>{

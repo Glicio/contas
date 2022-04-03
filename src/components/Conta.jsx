@@ -66,8 +66,8 @@ export default function Conta({id,credor, valor, descricao, pagamentos, deleteCo
     return(
     <div className="conta">
     
-        <div className="table-header" style={{display: "flex", alignItems: "flex-end"}}>
-            <button className="delete-btn" onClick={(e) => {deleteConta(id); atualizar()}}>ⓧ</button>
+        <div className="table-header" style={{display: "flex", alignItems: "flex-end", backgroundColor: "rgb(56, 56, 56)"}}>
+            <button className="delete-btn" onClick={(e) => {deleteConta(id)}}>ⓧ</button>
         </div>
         <table>
             <thead>
